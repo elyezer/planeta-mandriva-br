@@ -1,0 +1,161 @@
+/* RESETS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+a {
+    text-decoration:none;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Styles */
+
+body {
+    background: url(images/top-bg.png) repeat-x;
+}
+
+/* Header */
+
+div#header {
+    background: url(images/orange-gradiant.jpg) no-repeat bottom center;
+    height:100px;
+    margin:auto;
+    width: 960px;
+}
+
+/* Navigation */
+
+div#navigation {
+    background: url(secondary-bg.jpg) no-repeat top center;
+}
+
+/* Content */
+
+div#content {
+    background:url(images/content-gradiant.gif) repeat-x 0 0;
+    margin:auto;
+    width: 960px;
+}
+
+/* Sidebar */
+
+div#sidebar {
+    float:right;
+    width: 200px;
+}
+
+div.sidebar-section {
+    background: url(images/content-page-gradiant.jpg) no-repeat 0 0;
+    padding:15px;
+}
+
+/* Posts */
+
+div#posts {
+    background: url(images/content-page-gradiant.jpg) no-repeat 0 0;
+    border-right: 1px solid #efefef;
+    padding:20px;
+    width: 720px;
+}
+
+div#posts h2, div#posts h3 {
+    font-weight:normal;
+} 
+
+div#posts h2 {
+    border-left:1px solid #20397F;
+    color:#213A82;
+    font-size:150%;
+    letter-spacing:-1px;
+    padding:10px 0 15px 15px;
+}
+
+div#posts h3 {
+    border-left:1px solid #b2b2b2;
+    font-size:140%;
+    letter-spacing:-1px;
+    padding:5px 0 5px 15px;
+}
+
+div#posts h3 a {
+    color:#1D4F8F;
+}
+
+/* Post */
+
+div.post {
+    border-left:1px solid #dfdfdf;
+    margin-bottom:15px;
+    padding:10px 0 10px 20px;
+}
+
+div.post a {
+    color:#2854B0;
+}
+
+div.post a:hover {
+    color:#378ABC;
+}
+
+div.post h4 {
+    border-bottom: 1px solid #dfdfdf;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding-bottom:5px;
+    padding-left: 5px;
+}
+
+div.post-content p {
+    color: #555555;
+}
+
+div.post-info {
+    border-top: 1px solid #dfdfdf;
+    margin-top:10px;
+    padding-top:5px;
+}

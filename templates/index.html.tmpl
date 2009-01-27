@@ -20,69 +20,87 @@
 ### output file using <TMPL_VAR varname>.  We'll put the name of our
 ### Planet in the page title and again in an h1.
  
-<head>
-<title><TMPL_VAR name></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="generator" content="<TMPL_VAR generator ESCAPE="HTML">">
-</head>
+    <head>
+        <title><TMPL_VAR name></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="generator" content="<TMPL_VAR generator ESCAPE="HTML">">
 
-<body>
-<h1><TMPL_VAR name></h1>
+        <link type="image/x-icon" href="images/favicon.ico" rel="shortcut icon"/>
 
-### One of the two loops available is the Channels loop.  This allows you
-### to easily create a list of subscriptions, which is exactly what we'll do
-### here.
+        <link rel="stylesheet" href="planet.css" type="text/css">
+    </head>
 
-### Note that we can also expand variables inside HTML tags, but we need
-### to be cautious and HTML-escape any illegal characters using the form
-### <TMPL_VAR varname ESCAPE="HTML">
+    <body>
+        <div id="header">
+            <h1><a href="<TMPL_VAR link>"><TMPL_VAR name></a></h1>
+            
+            <ul id="navigation">
+                <li>Comunidade</li>
+                <li>Fórum</li>
+                <li>Wiki</li>
+            </ul><!--end navigation-->
+        </div><!--end header-->
 
-<div style="float: right">
-<h2>Subscriptions</h2>
-<ul>
-<TMPL_LOOP Channels>
-<li><a href="<TMPL_VAR link ESCAPE="HTML">" title="<TMPL_VAR title ESCAPE="HTML">"><TMPL_VAR name></a> <a href="<TMPL_VAR url ESCAPE="HTML">">(feed)</a></li>
-</TMPL_LOOP>
-</ul>
-</div>
+        ### One of the two loops available is the Channels loop.  This allows you
+        ### to easily create a list of subscriptions, which is exactly what we'll do
+        ### here.
 
-### The other loop is the Items loop, which will get iterated for each
-### news item.
+        ### Note that we can also expand variables inside HTML tags, but we need
+        ### to be cautious and HTML-escape any illegal characters using the form
+        ### <TMPL_VAR varname ESCAPE="HTML">
+        
+        <div id="content">
+            <div id="sidebar">
+                <div class="sidebar-section feeds">
+                    <h2>Astronautas</h2>
+                    <ul>
+                        <TMPL_LOOP Channels>
+                        <li><a href="<TMPL_VAR url ESCAPE="HTML">"><img src="images/feed.png" alt="(feed)" /></a> <a href="<TMPL_VAR link ESCAPE="HTML">" title="<TMPL_VAR title ESCAPE="HTML">"><TMPL_VAR name></a></li>
+                        </TMPL_LOOP>
+                    </ul>
+                </div><!--end sidebar-section-->
+            </div><!--end sidebar-->
 
-<TMPL_LOOP Items>
+            ### The other loop is the Items loop, which will get iterated for each
+            ### news item.
 
-### Visually distinguish articles from different days by checking for
-### the new_date flag.  This demonstrates the <TMPL_IF varname> ... </TMPL_IF>
-### check.
+            <div id="posts">
+                <TMPL_LOOP Items>
 
-<TMPL_IF new_date>
-<h2><TMPL_VAR new_date></h2>
-</TMPL_IF>
+                ### Visually distinguish articles from different days by checking for
+                ### the new_date flag.  This demonstrates the <TMPL_IF varname> ... </TMPL_IF>
+                ### check.
 
-### Group consecutive articles by the same author together by checking
-### for the new_channel flag.
+                <TMPL_IF new_date>
+                <h2><TMPL_VAR new_date></h2>
+                </TMPL_IF>
 
-<TMPL_IF new_channel>
-<h3><a href="<TMPL_VAR channel_link ESCAPE="HTML">" title="<TMPL_VAR channel_title ESCAPE="HTML">"><TMPL_VAR channel_name></a></h3>
-</TMPL_IF>
+                ### Group consecutive articles by the same author together by checking
+                ### for the new_channel flag.
 
+                <TMPL_IF new_channel>
+                <h3><a href="<TMPL_VAR channel_link ESCAPE="HTML">" title="<TMPL_VAR channel_title ESCAPE="HTML">"><TMPL_VAR channel_name></a></h3>
+                </TMPL_IF>
 
-<TMPL_IF title>
-<h4><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR title></a></h4>
-</TMPL_IF>
-<p>
-<TMPL_VAR content>
-</p>
-<p>
-<em><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_IF author>by <TMPL_VAR author> at </TMPL_IF><TMPL_VAR date></a></em>
-</p>
-</TMPL_LOOP>
+                <div class="post">
+                    <TMPL_IF title>
+                    <h4><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR title></a></h4>
+                    </TMPL_IF>
+                    <div class="post-content"
+                        <TMPL_VAR content>
+                    </div><!--end post-content-->
+                    <div class="post-info">
+                        <em><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_IF author>by <TMPL_VAR author> at </TMPL_IF><TMPL_VAR date></a></em>
+                    </div><!--end post-info-->
+                </div><!--end post-->
+                </TMPL_LOOP>
+            </div><!--end content-->
+        </div>
 
-<hr>
-<p>
-<a href="http://www.planetplanet.org/">Powered by Planet!</a><br>
-<em>Last updated: <TMPL_VAR date></em>
-</p>
-</body>
-
+        <hr>
+        <p>
+        <a href="http://www.planetplanet.org/">Powered by Planet!</a><br>
+        <em>Last updated: <TMPL_VAR date></em>
+        </p>
+    </body>
 </html>
