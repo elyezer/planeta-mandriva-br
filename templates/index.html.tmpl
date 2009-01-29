@@ -32,12 +32,12 @@
 
     <body>
         <div id="header">
-            <h1><a href="<TMPL_VAR link>"><TMPL_VAR name></a></h1>
+            <h1><a href="<TMPL_VAR link>" title="<TMPL_VAR name>"><TMPL_VAR name></a></h1>
             
             <ul id="navigation">
-                <li>Comunidade</li>
-                <li>Fórum</li>
-                <li>Wiki</li>
+                <li><a href="http://mandrivabrasil.org/site/" title="Comunidade Mandriva Brasil">Comunidade</a></li>
+                <li><a href="http://forum.mandrivabrasil.org/" title="Fórum da Comunidade Mandriva Brasil">Fórum</a></li>
+                <li><a class="nav-last" href="http://wiki.mandriva.com/pt/" title="Wiki oficial Mandriva Linux">Wiki</a></li>
             </ul><!--end navigation-->
         </div><!--end header-->
 
@@ -51,12 +51,45 @@
         
         <div id="content">
             <div id="sidebar">
+                <div class="sidebar-section">
+                    <h2>Assinar</h2>
+                    <h3>Feed</h3>
+                    <p>
+                        <a href="http://feeds2.feedburner.com/PlanetaMandrivaBrasil" title="Assine o feed do Planeta Mandriva Brasil"><img class="feed" src="images/feed.png" alt="Feed" /> Assine o feed do Planeta Mandriva Brasil em seu leitor favorito.</a>
+                    </p>
+                    <h3>Via e-mail</h3>
+                    <p>Digite o seu e-mail abaixo para receber as atualizações do Planeta Mandriva Brasil diretamente no seu e-mail.</p>
+                    <form action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=PlanetaMandrivaBrasil', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+                        <p>Digite seu e-mail:</p>
+                        <p class="aligncenter"><input type="text" style="width:140px" name="email"/></p>
+                        <input type="hidden" value="PlanetaMandrivaBrasil" name="uri"/>
+                        <input type="hidden" name="loc" value="pt_BR"/>
+                        <p class="aligncenter"><input type="submit" value="Assinar" /></p>
+                        <p class="aligncenter by-feedburner">Oferecido pelo <a href="http://feedburner.google.com" target="_blank">FeedBurner</a></p>
+                    </form>
+                </div><!--end sidebar-section-->
+                
                 <div class="sidebar-section feeds">
                     <h2>Astronautas</h2>
                     <ul>
                         <TMPL_LOOP Channels>
-                        <li><a href="<TMPL_VAR url ESCAPE="HTML">"><img src="images/feed.png" alt="(feed)" /></a> <a href="<TMPL_VAR link ESCAPE="HTML">" title="<TMPL_VAR title ESCAPE="HTML">"><TMPL_VAR name></a></li>
+                        <li><a href="<TMPL_VAR url ESCAPE="HTML">"><img src="images/feed-list.png" alt="(feed)" /></a> <a href="<TMPL_VAR link ESCAPE="HTML">" title="<TMPL_VAR title ESCAPE="HTML">"><TMPL_VAR name></a></li>
                         </TMPL_LOOP>
+                    </ul>
+                </div><!--end sidebar-section-->
+                
+                <div class="sidebar-section">
+                    <h2>Planetas</h2>
+                    <h3>Nacionais:</h3>
+                    <ul>
+                        <li><a href="http://planeta.gnulinuxbrasil.org/">Planeta Gnu/Linux Brasil</a></li>
+                        <li><a href="http://www.debianbrasil.org/planeta/">Planeta Debian Brasil</a></li>
+                        <li><a href="http://planeta.postgresql.org.br/">Planeta PostgreSQL Brasil</a></li>
+                        <li><a href="http://planeta.ubuntubrasil.org/">Planeta Ubuntu Brasil</a></li>
+                    </ul>
+                    <h3>Internacionais:</h3>
+                    <ul>
+                        <li><a href="http://planetmandriva.zarb.org/">Planet Mandriva</a></li>
                     </ul>
                 </div><!--end sidebar-section-->
             </div><!--end sidebar-->
@@ -90,7 +123,7 @@
                         <TMPL_VAR content>
                     </div><!--end post-content-->
                     <div class="post-info">
-                        <em><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_IF author>by <TMPL_VAR author> at </TMPL_IF><TMPL_VAR date></a></em>
+                        <em><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_IF author>por <TMPL_VAR author> em </TMPL_IF><TMPL_VAR date></a></em>
                     </div><!--end post-info-->
                 </div><!--end post-->
                 </TMPL_LOOP>
