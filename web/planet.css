@@ -202,6 +202,13 @@ div.feeds ul {
     list-style:none;
 }
 
+/* Adsense */
+
+div.adsense {
+    margin-top:20px;
+    text-align:center;
+}
+
 /* Posts */
 
 div#posts {
