@@ -111,10 +111,17 @@
                 ### Group consecutive articles by the same author together by checking
                 ### for the new_channel flag.
 
+                
+                <TMPL_IF channel_face>
+                    <img class="gotchi" src="images/gotchis/<TMPL_VAR channel_face ESCAPE="HTML">" width="<TMPL_VAR channel_facewidth ESCAPE="HTML">" height="<TMPL_VAR channel_faceheight ESCAPE="HTML">" alt="<TMPL_VAR channel_name> Gotchi" />
+                    <TMPL_ELSE>
+                    <img class="gotchi-default" src="images/gotchis/default.png" />
+                </TMPL_IF>
+
                 <TMPL_IF new_channel>
                 <h3><a href="<TMPL_VAR channel_link ESCAPE="HTML">" title="<TMPL_VAR channel_title ESCAPE="HTML">"><TMPL_VAR channel_name></a></h3>
                 </TMPL_IF>
-
+                
                 <div class="post">
                     <TMPL_IF title>
                     <h4><a href="<TMPL_VAR link ESCAPE="HTML">"><TMPL_VAR title></a></h4>

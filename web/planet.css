@@ -234,6 +234,19 @@ div#posts h3 a {
     color:#1D4F8F;
 }
 
+/* Gotchi */
+
+img.gotchi, img.gotchi-default {
+    float:right;
+    margin:10px;
+}
+
+img.gotchi-default {
+    border:1px solid #eeeeee;
+    margin:10px;
+    padding:9px;
+
+}
 /* Post */
 
 div.post {
